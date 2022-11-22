@@ -24,7 +24,7 @@ module.exports = {
         input_date: req.body.input_date
       };
       const result = await Trash.findByIdAndUpdate(req.body.id, updateTrashData);
-      result ? res.status(200).json(result) : res.status(400).json({message: 'bad request'});
+      result != null ? res.status(200).json(result) : res.status(400).json({message: 'bad request'});
     } catch (error) {
       res.status(500).json({
         message: error

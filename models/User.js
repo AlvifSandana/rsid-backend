@@ -16,7 +16,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    
+    accesstoken: {
+      type: String,
+      required: false
+    }
   },
   { timestamps: true }
 );

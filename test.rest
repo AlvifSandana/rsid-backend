@@ -1,3 +1,5 @@
+### REGISTER
+
 POST http://localhost:5000/api/auth/register HTTP/1.1
 Content-Type: application/json
 
@@ -7,7 +9,7 @@ Content-Type: application/json
   "email" : "admin@rumahsampah.id"
 }
 
-###
+### LOGIN
 
 POST http://localhost:5000/api/auth/login HTTP/1.1
 Content-Type: application/json
@@ -16,3 +18,62 @@ Content-Type: application/json
   "username": "admin",
   "password": "admin"
 }
+
+### ACTION 
+
+GET http://localhost:5000/api/action HTTP/1.1
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjY5MDgyODA2LCJleHAiOjE2NjkwODQ2MDZ9.5qlKzUUeRpk-7Vis8yhO5GQPS6OX8KsLgY3JSyxEp98
+
+### ACTION create 
+
+POST http://localhost:5000/api/action/create HTTP/1.1
+Content-Type: application/json
+
+{
+  "origin": "maggot",
+  "message": "test;input;data;another;2"
+}
+
+### ACTION delete all
+
+DELETE http://localhost:5000/api/action/delete HTTP/1.1
+
+### MAGGOTDATA
+
+GET http://localhost:5000/api/maggot/all HTTP/1.1
+
+### MAGGOTDATA create
+POST http://localhost:5000/api/maggot/create HTTP/1.1
+Content-Type: application/json
+
+{
+  "initial_amount": 10,
+  "initial_date": "20221121",
+  "harvest_amount": 23,
+  "harvest_date": "20221225"
+}
+
+### MAGGOTDATA update
+
+PUT http://localhost:5000/api/maggot/update HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "637c102df461e52fe52b06ce",
+  "initial_amount": 13,
+  "initial_date": "20221118",
+  "harvest_amount": 25,
+  "harvest_date": "20221225"
+}
+
+### MAGGOTDATA delete
+
+DELETE http://localhost:5000/api/maggot/delete HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "637b136f6aaa997a01e8f168"
+}
+### MAGGOTDATA delete all
+
+DELETE http://localhost:5000/api/maggot/delete/all HTTP/1.1

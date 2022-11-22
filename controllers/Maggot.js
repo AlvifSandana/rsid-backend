@@ -35,8 +35,8 @@ module.exports = {
   },
   delete: async (req, res) => {
     try {
-      const maggotdata = new Maggot.findByIdAndRemove(req.body.id);
-      maggotdata ? res.status(204).json({message: 'maggot data deleted'}) : res.status(400).json({message: 'bad request'});
+      await Maggot.findByIdAndRemove(req.body.id);
+      res.status(204).json({message: 'maggot data deleted'});
     } catch (error) {
       res.status(500).json({
         message: error
@@ -45,7 +45,7 @@ module.exports = {
   },
   getOne: async (req, res) => {
     try {
-      const maggotdata = await Maggot.findById(req.body.id);
+      const maggotdata = await Maggot.findById(req.params.id);
       maggotdata == null ? res.status(204).json({message: 'not found'}) : res.status(200).json(maggotdata);
     } catch (error) {
       res.status(500).json({
@@ -56,7 +56,7 @@ module.exports = {
   getAll: async (req, res) => {
     try {
       const maggotdata = await Maggot.find({});
-      maggotdata.length > 0 ? res.status(200).json(maggotdata) : res.status(204).json({message: 'not available'});
+      res.status(200).json(maggotdata);
     } catch (error) {
       res.status(500).json({
         message: error
