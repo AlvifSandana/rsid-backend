@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const Category = require("../models/Category");
+const verifyToken = require("../middlewares/auth.middleware");
 
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
   const newCat = new Category(req.body);
   try {
     const savedCat = await newCat.save();
@@ -11,7 +12,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
     try {
       const cats = await Category.find();
       res.status(200).json(cats);
