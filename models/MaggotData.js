@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const MaggotDataSchema = new mongoose.Schema(
   {
+    box_name: {
+      type: String,
+      required: true
+    },
     initial_date: {
       type: String,
       required: true
