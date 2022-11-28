@@ -8,6 +8,7 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const actionRoute = require('./routes/action');
 const maggotRoute = require('./routes/maggot');
+const trashRoute = require('./routes/trash');
 const multer = require("multer");
 const routerQuestion = require('./routes/question')
 const CORS = require('cors')
@@ -52,6 +53,7 @@ app.use("/api/categories", categoryRoute);
 app.use(routerQuestion)
 app.use("/api", actionRoute);
 app.use("/api", maggotRoute);
+app.use("/api", trashRoute);
 
 app.listen("5000", () => {
   console.log("Backend is running.");

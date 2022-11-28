@@ -61,4 +61,30 @@ module.exports = {
       });
     }
   },
+  getTotalWeight: async (req, res) => {
+    try {
+      const trashdata = await Trash.find({});
+      let countData = {
+        organik: 0,
+        anorganik: 0,
+        total: 0
+      }
+      if (trashdata.length > 0) {
+        trashdata.filter((e) => {e.trash_type === 'organik' ? countData.organik += e.trash_weight : countData.anorganik += e.trash_weight})
+        countData.total = countData.organik + countData.anorganik
+        res.status(200).json({
+          message: 'available',
+          countData
+        })
+      } else {
+        res.status(204).json({
+          message: 'empty'
+        })
+      }
+    } catch (error) {
+      res.status(500).json({
+        message: error
+      })
+    }
+  },
 }

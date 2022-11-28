@@ -77,3 +77,8 @@ Content-Type: application/json
 ### MAGGOTDATA delete all
 
 DELETE http://localhost:5000/api/maggot/delete/all HTTP/1.1
+
+### TRASH
+
+GET http://localhost:5000/api/trash/count HTTP/1.1
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjY5NjAxNTkwLCJleHAiOjE2Njk2MDMzOTB9.M33htvZf532zBE73Q23-6pYlqFvcbx5QZqGN_ABjJm0
